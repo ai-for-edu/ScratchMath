@@ -269,14 +269,15 @@ tr.separator td {
 
 /* Chart gallery */
 .chart-gallery {
-  margin: 28px 0;
+  max-width: 720px;
+  margin: 28px auto;
 }
 
 .chart-card {
   background: var(--bg-light);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 20px;
+  padding: 16px;
   margin: 0;
   text-align: center;
 }
@@ -289,21 +290,26 @@ tr.separator td {
 }
 
 .chart-card figcaption {
-  margin-top: 12px;
+  margin-top: 10px;
+  font-size: 0.85rem;
 }
 
 .chart-gallery > .chart-card {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .chart-gallery > .chart-card > img {
-  max-width: 600px;
+  max-width: 480px;
 }
 
 .chart-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
+}
+
+.chart-row .chart-card img {
+  max-width: 320px;
 }
 
 /* Two-column grid (legacy) */
