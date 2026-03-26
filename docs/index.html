@@ -286,20 +286,21 @@ ds_middle  = load_dataset("songdj/ScratchMath", "middle",  split="train")</code>
     </div>
     <p class="leaderboard-note">* denotes reasoning models. Bold blue indicates best performance per column. Full results available in the <a href="paper/ScratchMath_AIED2026.pdf" style="color: var(--primary);">paper</a>.</p>
 
-    <figure>
-      <img src="images/model_performance_radar.png" alt="Radar chart showing model performance across different error categories" style="max-width: 700px;">
-      <figcaption>Figure 4. Model performance comparison across error categories (radar chart).</figcaption>
-    </figure>
-
-    <div class="two-col">
-      <figure>
-        <img src="images/performance_by_grade.png" alt="Model performance across different grade levels">
-        <figcaption>Figure 5. Performance by grade level.</figcaption>
+    <div class="chart-gallery">
+      <figure class="chart-card">
+        <img src="images/model_performance_radar.png" alt="Radar chart showing model performance across different error categories">
+        <figcaption>Figure 4. Model performance across error categories.</figcaption>
       </figure>
-      <figure>
-        <img src="images/knowledge_performance.png" alt="Performance across mathematical knowledge categories">
-        <figcaption>Figure 6. Performance across math topics.</figcaption>
-      </figure>
+      <div class="chart-row">
+        <figure class="chart-card">
+          <img src="images/performance_by_grade.png" alt="Model performance across different grade levels">
+          <figcaption>Figure 5. Performance by grade level.</figcaption>
+        </figure>
+        <figure class="chart-card">
+          <img src="images/knowledge_performance.png" alt="Performance across mathematical knowledge categories">
+          <figcaption>Figure 6. Performance across math topics.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 

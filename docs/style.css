@@ -267,7 +267,46 @@ tr.separator td {
   margin-top: 4px;
 }
 
-/* Two-column grid */
+/* Chart gallery */
+.chart-gallery {
+  margin: 28px 0;
+}
+
+.chart-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.chart-card img {
+  max-width: 100%;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.chart-card figcaption {
+  margin-top: 12px;
+}
+
+.chart-gallery > .chart-card {
+  margin-bottom: 16px;
+}
+
+.chart-gallery > .chart-card > img {
+  max-width: 600px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Two-column grid (legacy) */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -441,7 +480,7 @@ footer a:hover {
     font-size: 1.4rem;
   }
 
-  .two-col {
+  .two-col, .chart-row {
     grid-template-columns: 1fr;
   }
 
