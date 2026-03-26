@@ -27,7 +27,7 @@ Qingsong Wen<sup>2,&dagger;</sup>
 [![Project Page](https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bbsngg.github.io/ScratchMath/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](paper/ScratchMath_AIED2026.pdf)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-ffd21e?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/songdj/ScratchMath)
-[![License](https://img.shields.io/badge/License-CC_BY_4.0-green?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-green?style=for-the-badge)](LICENSE)
 
 </div>
 
@@ -198,4 +198,4 @@ If you find this work useful, please cite:
 
 ## ⚖️ License
 
-This project is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+This project is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
