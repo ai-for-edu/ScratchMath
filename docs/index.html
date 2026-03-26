@@ -305,21 +305,36 @@ ds_middle  = load_dataset("songdj/ScratchMath", "middle",  split="train")</code>
 
   <!-- Examples -->
   <section id="examples">
-    <h2>Examples</h2>
-    <p>Authentic student scratchwork samples from the ScratchMath benchmark:</p>
+    <h2>Case Studies</h2>
+    <p>Representative failure cases from the best-performing model (o4-mini), illustrating key challenges in multimodal error diagnosis:</p>
     <div class="example-grid">
-      <figure>
-        <img src="images/example_1.jpg" alt="Student scratchwork example 1">
-        <figcaption>Example 1</figcaption>
-      </figure>
-      <figure>
-        <img src="images/example_2.jpg" alt="Student scratchwork example 2">
-        <figcaption>Example 2</figcaption>
-      </figure>
-      <figure>
-        <img src="images/example_3.jpg" alt="Student scratchwork example 3">
-        <figcaption>Example 3</figcaption>
-      </figure>
+      <div class="example-card">
+        <div class="example-tag tag-red">Visual Recognition Failure</div>
+        <img src="images/example_1.jpg" alt="Case study: Visual Recognition Failure">
+        <div class="example-body">
+          <p class="example-problem"><strong>Problem:</strong> Solve for <em>x</em>: 4x &minus; 3(20 &minus; x) = 6x &minus; 7(9 &minus; x)</p>
+          <p class="example-answer"><strong>Correct:</strong> x = 1/2 &nbsp; <strong>Student:</strong> x = &minus;1/2</p>
+          <p class="example-desc">The student miscalculated &minus;63 + 60 as +3 instead of &minus;3, leading to &minus;6x = 3 and thus x = &minus;1/2. The model failed to visually recognize the sign error in the scratchwork.</p>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-tag tag-orange">Formatting Misinterpretation</div>
+        <img src="images/example_2.jpg" alt="Case study: Formatting Misinterpretation">
+        <div class="example-body">
+          <p class="example-problem"><strong>Problem:</strong> If the two roots of a(x+m)<sup>2</sup>+b=0 are &minus;1 and 4, find the solutions to a(x+m&minus;3)<sup>2</sup>+b=0.</p>
+          <p class="example-answer"><strong>Correct:</strong> x = 2 or 7 &nbsp; <strong>Student:</strong> x = 2 and 7</p>
+          <p class="example-desc">The student mistakenly treated the shifted equation as a(x&minus;3)<sup>2</sup>+b=0, ignoring the +m term. Additionally, the student wrote "and" instead of "or" for the solution format.</p>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-tag tag-purple">Misaligned Misinterpretation</div>
+        <img src="images/example_3.jpg" alt="Case study: Misaligned Misinterpretation">
+        <div class="example-body">
+          <p class="example-problem"><strong>Problem:</strong> A brick has dimensions 20&times;11&times;6 cm and density 1.5 g/cm<sup>3</sup>. Find the weight in kilograms.</p>
+          <p class="example-answer"><strong>Correct:</strong> 1.98 kg &nbsp; <strong>Student:</strong> 1980</p>
+          <p class="example-desc">The student correctly computed the volume and mass (1980 g) but failed to convert grams to kilograms. The model misidentified this as a calculation error rather than a unit conversion oversight.</p>
+        </div>
+      </div>
     </div>
   </section>
 
