@@ -2,7 +2,7 @@
 
 <img src="figs/banner.png" width="100%" alt="ScratchMath Banner"/>
 
-### Unpacking Multimodal Error Analysis in Handwritten Math
+### *Can MLLMs Read Students' Minds?* Unpacking Multimodal Error Analysis in Handwritten Math
 
 **AIED 2026** &mdash; 27th International Conference on Artificial Intelligence in Education
 
