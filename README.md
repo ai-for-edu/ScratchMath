@@ -24,7 +24,7 @@ Qingsong Wen<sup>2,&dagger;</sup>
 
 <sup>&dagger;</sup>Corresponding author
 
-[![Project Page](https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ai-for-edu.github.io/ScratchMath/)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bbsngg.github.io/ScratchMath/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](paper/ScratchMath_AIED2026.pdf)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-ffd21e?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/songdj/ScratchMath)
 [![License](https://img.shields.io/badge/License-CC_BY_4.0-green?style=for-the-badge)](LICENSE)
