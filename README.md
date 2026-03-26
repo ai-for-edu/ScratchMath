@@ -6,7 +6,7 @@
 
 **AIED 2026** &mdash; 27th International Conference on Artificial Intelligence in Education
 
-[Dingjie Song](https://github.com/songdj)<sup>1</sup>,
+[Dingjie Song](https://bbsngg.github.io)<sup>1</sup>,
 Tianlong Xu<sup>2</sup>,
 Yi-Fan Zhang<sup>4</sup>,
 Hang Li<sup>5</sup>,
