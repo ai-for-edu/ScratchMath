@@ -6,20 +6,20 @@
 
 **AIED 2026** &mdash; 27th International Conference on Artificial Intelligence in Education
 
-[Dingjie Song](https://bbsngg.github.io)<sup>1</sup>,
-Tianlong Xu<sup>2</sup>,
-Yi-Fan Zhang<sup>4</sup>,
-Hang Li<sup>5</sup>,
-Zhiling Yan<sup>1</sup>,
-Xing Fan<sup>3</sup>,
-Haoyang Li<sup>3</sup>,
-Lichao Sun<sup>1</sup>,
+[Dingjie Song](https://bbsngg.github.io)<sup>1</sup> &nbsp;&nbsp;
+Tianlong Xu<sup>2</sup> &nbsp;&nbsp;
+Yi-Fan Zhang<sup>4</sup> &nbsp;&nbsp;
+Hang Li<sup>5</sup> &nbsp;&nbsp;
+Zhiling Yan<sup>1</sup><br>
+Xing Fan<sup>3</sup> &nbsp;&nbsp;
+Haoyang Li<sup>3</sup> &nbsp;&nbsp;
+Lichao Sun<sup>1</sup> &nbsp;&nbsp;
 Qingsong Wen<sup>2,&dagger;</sup>
 
-<sup>1</sup>Lehigh University &nbsp;
-<sup>2</sup>Squirrel Ai Learning (USA) &nbsp;
-<sup>3</sup>Squirrel Ai Learning (China) &nbsp;
-<sup>4</sup>Chinese Academy of Sciences &nbsp;
+<sup>1</sup>Lehigh University &nbsp;&nbsp;
+<sup>2</sup>Squirrel Ai Learning (USA) &nbsp;&nbsp;
+<sup>3</sup>Squirrel Ai Learning (China)<br>
+<sup>4</sup>Chinese Academy of Sciences &nbsp;&nbsp;
 <sup>5</sup>Michigan State University
 
 <sup>&dagger;</sup>Corresponding author
