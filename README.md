@@ -1,8 +1,8 @@
 <div align="center">
 
-# ScratchMath
+<img src="figs/banner.png" width="100%" alt="ScratchMath Banner"/>
 
-### Can MLLMs Read Students' Minds? <br> Unpacking Multimodal Error Analysis in Handwritten Math
+### Unpacking Multimodal Error Analysis in Handwritten Math
 
 **AIED 2026** &mdash; 27th International Conference on Artificial Intelligence in Education
 
