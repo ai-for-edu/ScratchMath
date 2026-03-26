@@ -35,16 +35,16 @@ Qingsong Wen<sup>2,&dagger;</sup>
   <img src="figs/overview.png" width="100%" alt="ScratchMath Overview"/>
 </p>
 
-## Highlights
+## ✨ Highlights
 
-- **Novel Task** &mdash; First benchmark targeting *error diagnosis* in authentic student handwritten scratchwork, shifting from the "examinee" to the "examiner" perspective.
-- **Real-World Data** &mdash; 1,720 samples from Chinese primary & middle school students, meticulously annotated via human-machine collaboration.
-- **Two Complementary Tasks** &mdash; Error Cause Explanation (ECE) + Error Cause Classification (ECC) across 7 error types.
-- **Comprehensive Evaluation** &mdash; 16 leading MLLMs benchmarked; best model (o4-mini) reaches **57.2%** vs. human experts at **83.9%**.
+- 🎯 **Novel Task** &mdash; First benchmark targeting *error diagnosis* in authentic student handwritten scratchwork, shifting from the "examinee" to the "examiner" perspective.
+- 📝 **Real-World Data** &mdash; 1,720 samples from Chinese primary & middle school students, meticulously annotated via human-machine collaboration.
+- 🔀 **Two Complementary Tasks** &mdash; Error Cause Explanation (ECE) + Error Cause Classification (ECC) across 7 error types.
+- 📊 **Comprehensive Evaluation** &mdash; 16 leading MLLMs benchmarked; best model (o4-mini) reaches **57.2%** vs. human experts at **83.9%**.
 
 ---
 
-## Overview
+## 📖 Overview
 
 **ScratchMath** evaluates whether Multimodal Large Language Models (MLLMs) can analyze handwritten mathematical scratchwork produced by real students. Unlike existing math benchmarks that focus on problem-solving, ScratchMath targets **error diagnosis** &mdash; identifying what type of mistake a student made and explaining why.
 
@@ -52,7 +52,7 @@ Qingsong Wen<sup>2,&dagger;</sup>
 <tr>
 <td width="50%" valign="top">
 
-### Error Cause Explanation (ECE)
+### 💬 Error Cause Explanation (ECE)
 Given a math problem, correct answer, reference solution, the student's incorrect answer, and an image of handwritten scratchwork, generate a **free-form explanation** of the student's error.
 
 **Metric:** LLM-as-a-Judge (o3-mini, 88.6% human agreement)
@@ -60,7 +60,7 @@ Given a math problem, correct answer, reference solution, the student's incorrec
 </td>
 <td width="50%" valign="top">
 
-### Error Cause Classification (ECC)
+### 🏷️ Error Cause Classification (ECC)
 Using the same inputs, classify the error into one of **7 categories**:
 
 | Category | English |
@@ -81,7 +81,7 @@ Using the same inputs, classify the error into one of **7 categories**:
 
 ---
 
-## Dataset
+## 📦 Dataset
 
 The dataset is hosted on HuggingFace: **[songdj/ScratchMath](https://huggingface.co/datasets/songdj/ScratchMath)**
 
@@ -102,16 +102,16 @@ print(ds[0]["question"], ds[0]["error_explanation"])
 
 ---
 
-## Leaderboard
+## 🏆 Leaderboard
 
 Performance of state-of-the-art MLLMs on ScratchMath:
 
 | Rank | Model | #Params | ECE Primary | ECE Middle | ECC Primary | ECC Middle | Avg |
 |:----:|-------|:-------:|:-----------:|:----------:|:-----------:|:----------:|:---:|
-| | *Human Expert* | *&mdash;* | *93.2* | *89.0* | *80.1* | *73.4* | *83.9* |
-| 1 | o4-mini | &mdash; | **71.8** | **69.7** | **40.1** | 47.3 | **57.2** |
-| 2 | Gemini 2.0 Flash Thinking | &mdash; | 65.9 | 61.0 | 43.9 | 47.3 | 54.5 |
-| 3 | Gemini 2.0 Flash | &mdash; | 52.2 | 46.9 | 38.6 | **49.0** | 46.7 |
+| 👤 | *Human Expert* | *&mdash;* | *93.2* | *89.0* | *80.1* | *73.4* | *83.9* |
+| 🥇 | o4-mini | &mdash; | **71.8** | **69.7** | **40.1** | 47.3 | **57.2** |
+| 🥈 | Gemini 2.0 Flash Thinking | &mdash; | 65.9 | 61.0 | 43.9 | 47.3 | 54.5 |
+| 🥉 | Gemini 2.0 Flash | &mdash; | 52.2 | 46.9 | 38.6 | **49.0** | 46.7 |
 | 4 | Qwen2.5-VL | 72B | 40.0 | 34.0 | 32.5 | 49.4 | 39.0 |
 | 5 | QVQ | 72B | 57.5 | 56.8 | 12.7 | 17.0 | 36.0 |
 | 6 | Gemma-3 | 27B | 38.9 | 26.1 | 32.2 | 46.1 | 35.8 |
@@ -123,7 +123,7 @@ Performance of state-of-the-art MLLMs on ScratchMath:
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Installation
 
@@ -161,7 +161,7 @@ python -m eval.run_ecc \
 ```
 
 <details>
-<summary><b>Using Open-Source Models (via vLLM)</b></summary>
+<summary><b>🔧 Using Open-Source Models (via vLLM)</b></summary>
 
 ```bash
 # Start vLLM server
@@ -179,7 +179,7 @@ python -m eval.run_ece \
 
 ---
 
-## Citation
+## 📄 Citation
 
 If you find this work useful, please cite:
 
@@ -196,6 +196,6 @@ If you find this work useful, please cite:
 }
 ```
 
-## License
+## ⚖️ License
 
 This project is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
