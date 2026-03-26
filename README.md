@@ -1,5 +1,6 @@
 # ScratchMath
 
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://ai-for-edu.github.io/ScratchMath/)
 [![Paper](https://img.shields.io/badge/Paper-AIED%202026-blue)](paper/ScratchMath_AIED2026.pdf)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/songdj/ScratchMath)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-green)](LICENSE)

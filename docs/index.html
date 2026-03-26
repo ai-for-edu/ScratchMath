@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScratchMath - Can MLLMs Read Students' Minds?</title>
+  <meta name="description" content="ScratchMath: A multimodal benchmark for evaluating MLLMs on error diagnosis in handwritten mathematical scratchwork. AIED 2026.">
+  <meta property="og:title" content="ScratchMath - Multimodal Error Analysis in Handwritten Math">
+  <meta property="og:description" content="Can MLLMs Read Students' Minds? A benchmark of 1,720 authentic student scratchwork samples for error diagnosis. AIED 2026.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <span class="conference-badge">AIED 2026</span>
+    <h1><em>Can MLLMs Read Students' Minds?</em><br>Unpacking Multimodal Error Analysis in Handwritten Math</h1>
+    <div class="authors">
+      Dingjie Song<sup>1</sup>,
+      Tianlong Xu<sup>2</sup>,
+      Yi-Fan Zhang<sup>4</sup>,
+      Hang Li<sup>5</sup>,
+      Zhiling Yan<sup>1</sup>,
+      Xing Fan<sup>3</sup>,
+      Haoyang Li<sup>3</sup>,
+      Lichao Sun<sup>1</sup>,
+      Qingsong Wen<sup>2*</sup>
+    </div>
+    <div class="affiliations">
+      <sup>1</sup>Lehigh University &nbsp;
+      <sup>2</sup>Squirrel Ai Learning (USA) &nbsp;
+      <sup>3</sup>Squirrel Ai Learning (China) &nbsp;
+      <sup>4</sup>Chinese Academy of Sciences &nbsp;
+      <sup>5</sup>Michigan State University<br>
+      <span style="font-size: 0.8rem;">* Corresponding author</span>
+    </div>
+    <div class="btn-group">
+      <a href="paper/ScratchMath_AIED2026.pdf" class="btn">Paper</a>
+      <a href="https://huggingface.co/datasets/songdj/ScratchMath" class="btn">Dataset</a>
+      <a href="https://github.com/ai-for-edu/ScratchMath" class="btn">Code</a>
+      <a href="#leaderboard" class="btn btn-outline">Leaderboard</a>
+    </div>
+  </header>
+
+  <!-- Overview Figure -->
+  <div class="hero-figure">
+    <img src="images/overview.png" alt="ScratchMath benchmark overview showing the framework for error cause explanation and classification on student handwritten scratchwork">
+  </div>
+
+  <!-- Abstract -->
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>
+      Assessing student handwritten scratchwork is crucial for personalized educational feedback but presents unique challenges due to diverse handwriting, complex layouts, and varied problem-solving approaches. Existing educational NLP primarily focuses on textual responses and neglects the complexity and multimodality inherent in authentic handwritten scratchwork. Current multimodal large language models (MLLMs) excel at visual reasoning but typically adopt an "examinee perspective", prioritizing generating correct answers rather than diagnosing student errors.
+    </p>
+    <p>
+      To bridge these gaps, we introduce <strong>ScratchMath</strong>, a novel benchmark specifically designed for explaining and classifying errors in authentic handwritten mathematics scratchwork. Our dataset comprises <strong>1,720</strong> mathematics samples from Chinese primary and middle school students, supporting two key tasks: <strong>Error Cause Explanation (ECE)</strong> and <strong>Error Cause Classification (ECC)</strong>, with seven defined error types. We systematically evaluate <strong>16 leading MLLMs</strong>, revealing significant performance gaps relative to human experts (<strong>83.9%</strong> avg.) &mdash; the best model (o4-mini) achieves only <strong>57.2%</strong>.
+    </p>
+
+    <div class="stats">
+      <div class="stat-card">
+        <span class="number">1,720</span>
+        <span class="label">Student Samples</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">2</span>
+        <span class="label">Evaluation Tasks</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">7</span>
+        <span class="label">Error Categories</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">16</span>
+        <span class="label">Models Evaluated</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">83.9%</span>
+        <span class="label">Human Performance</span>
+      </div>
+      <div class="stat-card">
+        <span class="number">57.2%</span>
+        <span class="label">Best Model (o4-mini)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tasks -->
+  <section id="tasks">
+    <h2>Tasks</h2>
+
+    <figure>
+      <img src="images/first.png" alt="Overview of two tasks (ECE and ECC) and three research questions" style="max-width: 500px;">
+      <figcaption>Figure 1. Overview of this work. (Top) An example illustrating the two proposed tasks. (Bottom) Summary of the three research questions addressed.</figcaption>
+    </figure>
+
+    <h3>Error Cause Explanation (ECE)</h3>
+    <p>
+      Given a math problem, its correct answer, reference solution, the student's incorrect answer, and an image of the student's handwritten scratchwork, the model must generate a free-form explanation of the specific cause of the student's error.
+    </p>
+    <p><strong>Evaluation:</strong> LLM-as-a-Judge (using o3-mini, 88.6% agreement with human judges).</p>
+
+    <h3>Error Cause Classification (ECC)</h3>
+    <p>
+      Using the same inputs, the model must classify the error into one of 7 predefined categories:
+    </p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Category (Chinese)</th><th>Category (English)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>&#35745;&#31639;&#38169;&#35823;</td><td>Calculation Error</td></tr>
+          <tr><td>2</td><td>&#39064;&#30446;&#29702;&#35299;&#38169;&#35823;</td><td>Question Comprehension Error</td></tr>
+          <tr><td>3</td><td>&#30693;&#35782;&#28857;&#38169;&#35823;</td><td>Knowledge Gap Error</td></tr>
+          <tr><td>4</td><td>&#31572;&#39064;&#25216;&#24039;&#38169;&#35823;</td><td>Problem-Solving Strategy Error</td></tr>
+          <tr><td>5</td><td>&#25163;&#20889;&#35548;&#25220;&#38169;&#35823;</td><td>Handwriting Transcription Error</td></tr>
+          <tr><td>6</td><td>&#36923;&#36753;&#25512;&#29702;&#38169;&#35823;</td><td>Logical Reasoning Error</td></tr>
+          <tr><td>7</td><td>&#27880;&#24847;&#21147;&#19982;&#32454;&#33410;&#38169;&#35823;</td><td>Attention &amp; Detail Error</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Evaluation:</strong> Weighted-average accuracy.</p>
+  </section>
+
+  <!-- Dataset -->
+  <section id="dataset">
+    <h2>Dataset</h2>
+    <p>
+      The dataset is hosted on HuggingFace: <a href="https://huggingface.co/datasets/songdj/ScratchMath" style="color: var(--primary);">songdj/ScratchMath</a>. It consists of 1,720 authentic handwritten scratchwork samples annotated through rigorous human-machine collaboration involving multiple stages of expert labeling, review, and verification.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Subset</th><th>Samples</th><th>Grade Level</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>primary</code></td><td>1,479</td><td>Grades 1&ndash;6</td></tr>
+          <tr><td><code>middle</code></td><td>241</td><td>Grades 7&ndash;9</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Each sample contains: <code>question_id</code>, <code>question</code>, <code>answer</code>, <code>solution</code>, <code>student_answer</code>, <code>student_scratchwork</code> (image), <code>error_category</code>, <code>error_explanation</code>.</p>
+
+    <pre><code>from datasets import load_dataset
+
+ds_primary = load_dataset("songdj/ScratchMath", "primary", split="train")
+ds_middle  = load_dataset("songdj/ScratchMath", "middle",  split="train")</code></pre>
+
+    <figure>
+      <img src="images/data_construction.png" alt="Dataset construction pipeline with data collection, annotation, quality verification">
+      <figcaption>Figure 2. Dataset construction pipeline: data collection, MLLM-assisted annotation, expert review, and quality verification.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/error_distribution_comparison.png" alt="Error type distribution across primary and middle school subsets" style="max-width: 600px;">
+      <figcaption>Figure 3. Error type distribution comparison between primary and middle school subsets.</figcaption>
+    </figure>
+  </section>
+
+  <!-- Leaderboard -->
+  <section id="leaderboard">
+    <h2>Leaderboard</h2>
+    <p>Performance of state-of-the-art MLLMs on ScratchMath. Human expert performance averages <strong>83.9%</strong> across all metrics.</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>#Params</th>
+            <th>ECE Primary</th>
+            <th>ECE Middle</th>
+            <th>ECC Primary</th>
+            <th>ECC Middle</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="human-row">
+            <td>Human Expert</td>
+            <td>&mdash;</td>
+            <td>93.2</td>
+            <td>89.0</td>
+            <td>80.1</td>
+            <td>73.4</td>
+            <td>83.9</td>
+          </tr>
+          <tr class="separator"><td colspan="7"></td></tr>
+          <tr>
+            <td>o4-mini*</td>
+            <td>&mdash;</td>
+            <td class="best">71.8</td>
+            <td class="best">69.7</td>
+            <td class="best">40.1</td>
+            <td>47.3</td>
+            <td class="best">57.2</td>
+          </tr>
+          <tr>
+            <td>Gemini 2.0 Flash Thinking*</td>
+            <td>&mdash;</td>
+            <td>65.9</td>
+            <td>61.0</td>
+            <td>43.9</td>
+            <td>47.3</td>
+            <td>54.5</td>
+          </tr>
+          <tr>
+            <td>Gemini 2.0 Flash</td>
+            <td>&mdash;</td>
+            <td>52.2</td>
+            <td>46.9</td>
+            <td>38.6</td>
+            <td class="best">49.0</td>
+            <td>46.7</td>
+          </tr>
+          <tr>
+            <td>QVQ*</td>
+            <td>72B</td>
+            <td>57.5</td>
+            <td>56.8</td>
+            <td>12.7</td>
+            <td>17.0</td>
+            <td>36.0</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-VL</td>
+            <td>72B</td>
+            <td>40.0</td>
+            <td>34.0</td>
+            <td>32.5</td>
+            <td>49.4</td>
+            <td>39.0</td>
+          </tr>
+          <tr>
+            <td>Gemma-3</td>
+            <td>27B</td>
+            <td>38.9</td>
+            <td>26.1</td>
+            <td>32.2</td>
+            <td>46.1</td>
+            <td>35.8</td>
+          </tr>
+          <tr>
+            <td>Skywork-R1V*</td>
+            <td>38B</td>
+            <td>37.5</td>
+            <td>33.6</td>
+            <td>27.7</td>
+            <td>43.2</td>
+            <td>35.5</td>
+          </tr>
+          <tr>
+            <td>GPT-4o</td>
+            <td>&mdash;</td>
+            <td>47.7</td>
+            <td>44.8</td>
+            <td>26.1</td>
+            <td>22.0</td>
+            <td>35.2</td>
+          </tr>
+          <tr>
+            <td>InternVL2.5</td>
+            <td>78B</td>
+            <td>27.1</td>
+            <td>24.5</td>
+            <td>30.7</td>
+            <td>44.8</td>
+            <td>31.8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leaderboard-note">* denotes reasoning models. Bold blue indicates best performance per column. Full results available in the <a href="paper/ScratchMath_AIED2026.pdf" style="color: var(--primary);">paper</a>.</p>
+
+    <figure>
+      <img src="images/model_performance_radar.png" alt="Radar chart showing model performance across different error categories" style="max-width: 700px;">
+      <figcaption>Figure 4. Model performance comparison across error categories (radar chart).</figcaption>
+    </figure>
+
+    <div class="two-col">
+      <figure>
+        <img src="images/performance_by_grade.png" alt="Model performance across different grade levels">
+        <figcaption>Figure 5. Performance by grade level.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/knowledge_performance.png" alt="Performance across mathematical knowledge categories">
+        <figcaption>Figure 6. Performance across math topics.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section id="examples">
+    <h2>Examples</h2>
+    <p>Authentic student scratchwork samples from the ScratchMath benchmark:</p>
+    <div class="example-grid">
+      <figure>
+        <img src="images/example_1.jpg" alt="Student scratchwork example 1">
+        <figcaption>Example 1</figcaption>
+      </figure>
+      <figure>
+        <img src="images/example_2.jpg" alt="Student scratchwork example 2">
+        <figcaption>Example 2</figcaption>
+      </figure>
+      <figure>
+        <img src="images/example_3.jpg" alt="Student scratchwork example 3">
+        <figcaption>Example 3</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section id="citation">
+    <h2>Citation</h2>
+    <p>If you find this work useful, please cite:</p>
+    <div class="citation-box">
+      <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+      <pre><code>@inproceedings{song2026scratchmath,
+  title={Can MLLMs Read Students' Minds? Unpacking Multimodal
+         Error Analysis in Handwritten Math},
+  author={Song, Dingjie and Xu, Tianlong and Zhang, Yi-Fan
+          and Li, Hang and Yan, Zhiling and Fan, Xing
+          and Li, Haoyang and Sun, Lichao and Wen, Qingsong},
+  booktitle={Proceedings of the 27th International Conference
+             on Artificial Intelligence in Education (AIED)},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <a href="paper/ScratchMath_AIED2026.pdf">Paper</a> &middot;
+      <a href="https://huggingface.co/datasets/songdj/ScratchMath">Dataset</a> &middot;
+      <a href="https://github.com/ai-for-edu/ScratchMath">Code</a>
+    </p>
+    <p style="margin-top: 8px;">Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </footer>
+
+</div>
+
+<script>
+function copyBibtex() {
+  const text = document.querySelector('.citation-box code').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
