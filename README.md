@@ -14,7 +14,7 @@ Zhiling Yan<sup>1</sup><br>
 Xing Fan<sup>3</sup> &nbsp;&nbsp;
 Haoyang Li<sup>3</sup> &nbsp;&nbsp;
 Lichao Sun<sup>1</sup> &nbsp;&nbsp;
-Qingsong Wen<sup>2,&dagger;</sup>
+[Qingsong Wen](https://sites.google.com/site/qingsongwen8)<sup>2,&dagger;</sup>
 
 <sup>1</sup>Lehigh University &nbsp;&nbsp;
 <sup>2</sup>Squirrel Ai Learning (USA) &nbsp;&nbsp;
